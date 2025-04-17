@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="en-US">
+  
+  <info>
+    <title>Journal of Applied Polymer Science</title>
+    <id>http://www.zotero.org/styles/minimal-custom-style</id>
+    <link href="http://www.zotero.org/styles/minimal-custom-style" rel="self"/>
+    <author>
+      <name>Francesco Piana</name>
+    </author>
+    <category citation-format="citation-number"/>
+    <category field="generic-base"/>
+    <updated>2025-04-17T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/"/>
+  </info>
+
+  <!-- === MACROS === -->
+
+<macro name="author">
+  <names variable="author">
+    <name delimiter=", " 
+          initialize-with="." 
+          and="text" 
+          sort-separator=", " 
+          name-as-sort-order="first"
+          delimiter-precedes-last="never"
+          et-al-min="6"
+          et-al-use-first="3"/>
+    <label form="short" prefix=" (" suffix=")"/>
+    <substitute>
+      <names variable="editor"/>
+      <names variable="translator"/>
+      <text macro="title"/>
+    </substitute>
+  </names>
+</macro>
+
+  <macro name="issued">
+    <date prefix="(" suffix="):" variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <macro name="title">
+    <text prefix='"' suffix=', "' variable="title"/>
+  </macro>
+
+  <macro name="container-title">
+    <text variable="container-title" font-style="italic"/>
+  </macro>
+
+  <macro name="pages">
+    <group delimiter=" ">
+      <text variable="page"/>
+    </group>
+  </macro>
+
+  <macro name="volume">
+    <group delimiter="">
+      <text variable="volume" />
+    </group>
+  </macro>
+  
+  <macro name="issue">
+    <group delimiter=" ">
+      <text prefix=", no. " variable="issue" />
+    </group>
+  </macro>
+  
+  <macro name="doi">
+  <text variable="DOI" prefix=", " href="https://doi.org/" />
+ </macro>
+
+  <!-- === CITATION IN-TEXT === -->
+
+  <citation>
+    <layout delimiter="; ">
+      <group delimiter=", ">
+        <text prefix="[" suffix="]" variable="citation-number"/>
+      </group>
+    </layout>
+  </citation>
+
+  <!-- === BIBLIOGRAPHY === -->
+  <bibliography second-field-align="flush" hanging-indent="true">
+    <layout suffix=".">
+      <text suffix="." variable="citation-number"/>
+      <group delimiter=" ">
+        <text macro="author" delimiter=", " />
+        <text macro="title"/>
+        <text macro="container-title"/>
+        <text macro="volume"/>
+        <group delimiter=" ">
+         <text macro="issue"/>
+         <text macro="issued"/>
+        </group>
+        <text macro="pages"/>
+        <text macro="doi"/>
+      </group>
+    </layout>
+  </bibliography>
+
+</style>
