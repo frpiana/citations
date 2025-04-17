@@ -8,14 +8,12 @@
     <author>
       <name>Francesco Piana</name>
     </author>
-    <category citation-format="citation-number"/>
+    <category citation-format="numeric"/>
     <category field="generic-base"/>
     <updated>2025-04-17T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/"/>
   </info>
-
   <!-- === MACROS === -->
-
 <macro name="author">
   <names variable="author">
     <name delimiter=", " 
@@ -34,27 +32,22 @@
     </substitute>
   </names>
 </macro>
-
   <macro name="issued">
     <date prefix="(" suffix="):" variable="issued">
       <date-part name="year"/>
     </date>
   </macro>
-
   <macro name="title">
     <text prefix='"' suffix=', "' variable="title"/>
   </macro>
-
   <macro name="container-title">
     <text variable="container-title" font-style="italic"/>
   </macro>
-
   <macro name="pages">
     <group delimiter=" ">
       <text variable="page"/>
     </group>
   </macro>
-
   <macro name="volume">
     <group delimiter="">
       <text variable="volume" />
@@ -68,11 +61,9 @@
   </macro>
   
   <macro name="doi">
-  <text variable="DOI" prefix=", " href="https://doi.org/" />
- </macro>
-
+    <text variable="DOI" prefix=", " />
+  </macro>
   <!-- === CITATION IN-TEXT === -->
-
   <citation>
     <layout delimiter="; ">
       <group delimiter=", ">
@@ -80,13 +71,12 @@
       </group>
     </layout>
   </citation>
-
   <!-- === BIBLIOGRAPHY === -->
   <bibliography second-field-align="flush" hanging-indent="true">
     <layout suffix=".">
-      <text suffix="." variable="citation-number"/>
+      <text variable="citation-number" suffix="."/>
       <group delimiter=" ">
-        <text macro="author" delimiter=", " />
+        <text macro="author"/>
         <text macro="title"/>
         <text macro="container-title"/>
         <text macro="volume"/>
@@ -99,5 +89,4 @@
       </group>
     </layout>
   </bibliography>
-
 </style>
